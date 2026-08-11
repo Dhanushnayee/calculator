@@ -1,1 +1,84 @@
-# calculator
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <style>
+      #nums {
+        margin: 4px;
+        text-align: center;
+        height: 50px;
+        width: 50px;
+        background-color: rgb(85, 91, 97);
+        box-shadow: 3px;
+        border-radius: 20px;
+      }
+      #input {
+        height: 30px;
+        width: 230px;
+        box-shadow: 3px 4px;
+        margin-bottom: 20px;
+        text-align: end;
+        padding-right: 10px;
+      }
+      body {
+        width: 250px;
+        margin: 50px;
+        padding: 10px;
+        border: 2px solid blue;
+        border-radius: 2px;
+        background-color: rgb(101, 105, 109);
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" placeholder="0" id="input" readonly />
+    <div>
+      <button id="nums" onclick="allclear()" ;>AC</button>
+      <button id="nums" onclick="delete1()">Del</button>
+      <button id="nums" onclick="numbtn('%')">%</button>
+      <button id="nums" onclick="numbtn('/')">/</button>
+    </div>
+    <div>
+      <button id="nums" onclick="numbtn('7')">7</button>
+      <button id="nums" onclick="numbtn('8')">8</button>
+      <button id="nums" onclick="numbtn('9')">9</button>
+      <button id="nums" class="btn" onclick="numbtn('*')">x</button>
+    </div>
+    <div>
+      <button id="nums" onclick="numbtn('4')">4</button>
+      <button id="nums" onclick="numbtn('5')">5</button>
+      <button id="nums" onclick="numbtn('6')">6</button>
+      <button id="nums" class="btn" onclick="numbtn('-')">-</button>
+    </div>
+    <div>
+      <button id="nums" onclick="numbtn('1')">1</button>
+      <button id="nums" onclick="numbtn('2')">2</button>
+      <button id="nums" onclick="numbtn('3')">3</button>
+      <button id="nums" class="btn" onclick="numbtn('+')">+</button>
+    </div>
+    <div>
+      <button id="nums" onclick="numbtn('00')">00</button>
+      <button id="nums" onclick="numbtn('0')">0</button>
+      <button id="nums" onclick="numbtn('.')">.</button>
+      <button id="nums" class="btn" onclick="calculate()">=</button>
+    </div>
+    <script>
+      const display = document.getElementById('input');
+      function numbtn(input) {
+        display.value = display.value + input;
+      }
+      function calculate() {
+        display.value = eval(display.value);
+      }
+      function allclear() {
+        display.value = '';
+      }
+      function delete1() {
+        display.value = display.value.slice(0, display.value.length - 1);
+      }
+    </script>
+  </body>
+</html>
